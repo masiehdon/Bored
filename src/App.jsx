@@ -1,5 +1,6 @@
 
 import { useEffect, useState } from 'react';
+import Button from './components/Button';
 import './App.css'
 
 function App() {
@@ -20,10 +21,13 @@ const [activities, setActivities] = useState([])
     fetchActivities();
   }, [])
   
+  
+
   return (
     <>
-      <button onClick={fetchActivities}>Get random activity</button>
-      <h1>{ activities }</h1>
+      
+      <h1>{activities}</h1>
+      <Button onFetchActivities={ fetchActivities }>Get a random guess</Button>
     </>
   )
 }
