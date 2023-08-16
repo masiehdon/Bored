@@ -22,7 +22,7 @@ const [activities, setActivities] = useState([])
   
   return (
     <>
-      <button>Get random activity</button>
+      <button onClick={fetchActivities}>Get random activity</button>
       <h1>{ activities }</h1>
     </>
   )
