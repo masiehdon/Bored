@@ -17,9 +17,9 @@ const [activities, setActivities] = useState([])
   console.error("Error fetching activities:", error);
 }
 }
-  useEffect(() => {
-    fetchActivities();
-  }, [])
+  // useEffect(() => {
+  //   fetchActivities();
+  // }, [])
   
   
 
@@ -27,6 +27,7 @@ const [activities, setActivities] = useState([])
     <>
       
       <h1>{activities}</h1>
+      {/* Passing down fetchActivities function as props to Button component */}
       <Button onFetchActivities={ fetchActivities }>Get a random guess</Button>
     </>
   )
