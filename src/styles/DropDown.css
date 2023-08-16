@@ -1,0 +1,34 @@
+/* Dropdown container styles */
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+/* Dropdown select styles */
+.dropdown-select {
+  padding: 8px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Dropdown select arrow styles */
+.dropdown-select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Dropdown option styles */
+.dropdown-select option {
+  padding: 8px;
+  font-size: 16px;
+}
+
+/* Dropdown option hover styles */
+.dropdown-select option:hover {
+  background-color: #f2f2f2;
+}
