@@ -38,7 +38,7 @@ function App() {
       <h1>{activities}</h1>
       <h2>{ category }</h2>
       {/* Passing down fetchActivities function as props to Button component */}
-      <Button OnHandleButtonClick={ handleButtonClick }>{isClicked ? "Feeling Bored Again?" : "Get a New Idea"}</Button>
+      <Button OnHandleButtonClick={ handleButtonClick }>{isClicked ? "Get a New Idea" : "Feeling Bored Again?"}</Button>
     </>
   )
 }
