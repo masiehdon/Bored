@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 
-function Button({ onFetchActivities, children }) {
+function Button({ OnHandleButtonClick, children }) {
     // Receiving and destructuring props + children props
     return (
         <div>
-            <button onClick={onFetchActivities}>{ children }</button>
+            <button onClick={OnHandleButtonClick}>{ children }</button>
         </div>
     )
 }
