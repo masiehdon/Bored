@@ -1,4 +1,3 @@
-
 import {  useState } from 'react';
 import Button from './components/Button';
 import './App.css'
@@ -10,15 +9,17 @@ function App() {
   const [isClicked, setIsClicked] = useState(false);
 
   
-  async function fetchActivities() {
-  try{
-  const response = await fetch("https://www.boredapi.com/api/activity/");
+  async function fetchActivities(selectedCategory) {
+    try {
+      const url = selectedCategory
+        ? `https://www.boredapi.com/api/activity?type=${selectedCategory}`
+        : `https://www.boredapi.com/api/activity/`
+      
+  const response = await fetch(url);
     const data = await response.json();
-    const activity = data.activity
-    const category = data.type
-    setActivities([activity])
-    setCategory([category])
-      console.log(data);
+    // const activity = data.activity
+    setActivities(data.activity)
+    console.log(data);
   } catch (error) {
   console.error("Error fetching activities:", error);
 }
@@ -26,21 +27,32 @@ function App() {
   // useEffect(() => {
   //   fetchActivities();
   // }, [])
-  function handleButtonClick() {
-    fetchActivities()
-    setIsClicked(true)
-  }
   
+
+
+  function handleButtonClick() {
+    fetchActivities(category)
+    setIsClicked(true)
+    console.log(category)
+  }
 
   return (
     <>
-      <DropDown  />
+      <DropDown
+        onSetCategory = {setCategory}
+      />
       <h1>{activities}</h1>
       <h2>{ category }</h2>
       {/* Passing down fetchActivities function as props to Button component */}
-      <Button OnHandleButtonClick={ handleButtonClick }>{isClicked ? "Get a New Idea" : "Feeling Bored Again?"}</Button>
+      <Button
+        OnHandleButtonClick={handleButtonClick}
+        category={category}
+      >
+        {isClicked ? "Get a New Idea" : "Feeling Bored Again?"}
+      </Button>
     </>
   )
 }
 
 export default App
+

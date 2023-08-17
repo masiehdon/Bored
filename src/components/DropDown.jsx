@@ -1,9 +1,17 @@
+/* eslint-disable react/prop-types */
 import '../styles/DropDown.css';
 
-function DropDown() {
+function DropDown({ onSetCategory }) {
+  function selectCategory(e) {
+      const selectedCategory = e.target.value
+    onSetCategory(selectedCategory)
+    console.log('selectedCategory: ', e.target.value)
+  }
+
   return (
     <div className="dropdown">
-      <select className="dropdown-select">
+      <select className="dropdown-select" onChange={selectCategory}>
+        <option value="">Select a category</option>
         <option value="education">Education</option>
         <option value="recreational">Recreational</option>
         <option value="social">Social</option>
