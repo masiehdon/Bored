@@ -10,7 +10,7 @@ function App() {
 
   async function fetchActivities() {
   try{
-  const response = await fetch("http://www.boredapi.com/api/activity/");
+  const response = await fetch("https://www.boredapi.com/api/activity/");
     const data = await response.json();
     const activity = data.activity
     const category = data.type
