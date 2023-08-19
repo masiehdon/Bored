@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Heart from "react-animated-heart";
 import Button from './components/Button';
 import DropDown from './components/DropDown';
 import './App.css'
 import Favorites from './components/Favorites';
+import { v4 as uuidv4 } from 'uuid';
 
 function App() {
   const [activities, setActivities] = useState([])
@@ -12,7 +13,8 @@ function App() {
   const [fav, setFav] = useState([])
    const [isClick, setClick] = useState(false);
 
-  
+  const uniqueId = uuidv4(); 
+
   async function fetchActivities(selectedCategory) {
     try {
       const url = selectedCategory
@@ -21,8 +23,7 @@ function App() {
       
   const response = await fetch(url);
     const data = await response.json();
-    // const activity = data.activity
-    setActivities(data.activity)
+       setActivities(data.activity)
     console.log(data);
   } catch (error) {
   console.error("Error fetching activities:", error);
@@ -34,14 +35,41 @@ function App() {
     fetchActivities(category)
     setIsClicked(true)
     setClick(false)
-    console.log('fav: ', fav)
+    
    }
 
+  
+  // Cant remove the selected element from fav by clicking it again
+
+//   function HandleSaveFav(activities) {
+//   const newFav = {id: uniqueId, activity: activities}
+//     if (!isClick && !fav.some(item => item.activity === activities)) {
+//        setFav(currentFav => [...currentFav, newFav])
+//     }
+    
+//     if (!isClick && fav.some(item => item.activity === activities)) {
+//       const newFavList = fav.filter(item => item.id !== newFav.id)
+//       setFav(newFavList)
+//     }
+//  setClick(isClick => !isClick)
+//   }
+  
   function HandleSaveFav(activities) {
-    {!isClick && setFav(currentFav => [...currentFav, activities])}
-   setClick(isClick=>!isClick)
-    console.log('fav: ', fav)
-      }
+  if (isClick) {
+    const newFavList = fav.filter(item => item.activity !== activities);
+    setFav(newFavList);
+  } else {
+    const newFav = { id: uniqueId, activity: activities };
+    setFav(currentFav => [...currentFav, newFav]);
+  }
+  
+  setClick(isClick => !isClick);
+}
+
+  
+   useEffect(() => {
+    console.log('Favorites updated:', fav);
+  }, [fav]);
 
   return (
     <>
@@ -60,10 +88,7 @@ function App() {
       >
         {isClicked ? "Get a New Idea" : "Feeling Bored Again?"}
       </Button>
-      <Favorites
-        fav={fav}
-        setFav= { setFav }
-      />
+      <Favorites fav={fav} />
       
     </>
   )

@@ -1,9 +1,13 @@
+
+
 /* eslint-disable react/prop-types */
-function Favorites({fav}) {
+function Favorites({ fav }) {
+    
+   
     return (
         <div>
-            {fav.map((item, index) => (
-                <h2 key={index}>{item}</h2>
+            {fav.map((favorite) => (
+                <h2 key={favorite.id}>{favorite.activity}</h2>
             ))}
         </div>
     )
