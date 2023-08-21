@@ -38,6 +38,8 @@ function App() {
 
   return (
     <>
+      {/* DELETE THIS eventually */}
+      {/* Det här är ett exempel på hur stilmallen ser ut: */}
       <div className="top-nav"><a href="" target="_blank">about bored</a></div>
       <div className="header">
         <h1>Bored?</h1>
@@ -47,7 +49,8 @@ function App() {
       <button className="activity">Random</button>
       <br></br>
       <br></br>
-
+      {/* ------ */}
+      
       <DropDown
         onSetCategory={setCategory}
       />
