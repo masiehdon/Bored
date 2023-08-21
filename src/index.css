@@ -1,0 +1,48 @@
+:root {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+  height: 100vh;
+  box-sizing: border-box;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 20px 10vw;
+  padding: 0;
+  font-size: 10px;
+  font-family: 'Montserrat', sans-serif;
+  color: #202D37;
+  background: linear-gradient(180deg, rgba(255,255,255, 1) 2%, rgba(248,248,248,1) 98%);
+  
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 9.6em;
+  color: #085AFC;
+}
+
+h2 {
+  font-family: 'Lexend', sans-serif;
+  font-weight: 600;
+  font-size: 6.4em;
+  line-height: 108%;
+  color: #202D37;
+}

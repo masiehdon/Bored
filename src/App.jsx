@@ -38,6 +38,10 @@ function App() {
 
   return (
     <>
+      <h1>Bored?</h1>
+      <h2>Casual & Daily Activities</h2>
+      <p></p>
+
       <DropDown
         onSetCategory = {setCategory}
       />
