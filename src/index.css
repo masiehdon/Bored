@@ -36,13 +36,60 @@ h1 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
   font-size: 9.6em;
+  font-size: 8.1em;
   color: #085AFC;
+  margin: 0 0 0.22em;
 }
 
 h2 {
   font-family: 'Lexend', sans-serif;
   font-weight: 600;
   font-size: 6.4em;
+  font-size: 4.8em;
   line-height: 108%;
   color: #202D37;
+  margin: 0 0 0.22em;
+}
+
+p {
+  font-family: 'Noto Sans Yi', sans-serif;
+  font-weight: 400;
+  font-size: 3.6em;
+  font-size: 2.8em;
+  line-height: 120%;
+  color: #35404A;
+  margin: 0 0 0.22em;
+}
+
+.ingress {
+  font-family: 'Noto Sans Yi', sans-serif;
+  font-weight: 400;
+  font-size: 2.4em;
+  line-height: 120%;
+  color: #35404A;
+  margin: 3.2em 0 1.22em;
+}
+
+a, a:link, a:visited {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1.4em;
+  line-height: 110%;
+  color: #202D37;
+}
+
+button.activity {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 1.6em;
+  line-height: 110%;
+  color: #fff;
+  background-color: #202D37;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: none;
+}
+
+.top-nav {
+  margin: 0 0 4.2em;
 }
