@@ -1,0 +1,19 @@
+.top-nav {
+  display: flex;
+  flex-direction: row;
+	margin-bottom: 4.2em;
+  gap: 15px;
+} 
+
+.top-nav a {
+	font-family: var(--font-primary);
+	font-weight: 600;
+	font-size: 1.4em;
+	line-height: 110%;
+	color: var(--color-primary);
+	text-decoration: none;
+}
+
+.top-nav a.active {
+  text-decoration: underline;
+}

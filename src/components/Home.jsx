@@ -35,7 +35,6 @@ function Home() {
 
   return (
     <>
-      <div className="top-nav"><a href="" target="_blank">about bored</a></div>
       <div className="header">
         <h1>Bored?</h1>
         <h2>Casual & Daily Activities</h2>
