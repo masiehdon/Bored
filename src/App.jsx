@@ -44,7 +44,11 @@ function App() {
         <h2>Casual & Daily Activities</h2>
         <p className="ingress">Get ideas for activites. Click on a button.</p>
       </div>
-      <button className="activity">Random</button>
+      <button className="activity random">Random</button>
+      <button className="activity relax">Relax</button>
+      <button className="activity social">Social</button>
+      <button className="activity cooking">Cooking</button>
+      <button className="activity learning">Learning</button>
       <br></br>
       <br></br>
 
