@@ -31,6 +31,14 @@ function App() {
 }
 
 
+  function fetchRandomActivity() {
+    fetch('http://www.boredapi.com/api/activity/')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
+  }
+  
+
   function handleButtonClick() {
     fetchActivities(category)
     setIsClicked(true)
@@ -39,20 +47,7 @@ function App() {
    }
 
   
-  // Cant remove the selected element from fav by clicking it again
 
-//   function HandleSaveFav(activities) {
-//   const newFav = {id: uniqueId, activity: activities}
-//     if (!isClick && !fav.some(item => item.activity === activities)) {
-//        setFav(currentFav => [...currentFav, newFav])
-//     }
-    
-//     if (!isClick && fav.some(item => item.activity === activities)) {
-//       const newFavList = fav.filter(item => item.id !== newFav.id)
-//       setFav(newFavList)
-//     }
-//  setClick(isClick => !isClick)
-//   }
   
   function HandleSaveFav(activities) {
   if (isClick) {
