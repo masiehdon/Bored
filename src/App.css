@@ -62,20 +62,3 @@ button.activity {
 	/* border: 2px solid orange; */
 	display: block;
 }
-
-/* this maybe a temporary style */
-.top-nav a,
-.top-nav a:link,
-.top-nav a:visited {
-	font-family: var(--font-primary);
-	font-weight: 600;
-	font-size: 1.4em;
-	line-height: 110%;
-	color: var(--color-primary);
-	text-decoration: underline;
-}
-
-.top-nav {
-	margin: 0 0 4.2em;
-}
-/* ----- */
