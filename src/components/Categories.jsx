@@ -17,6 +17,7 @@ function Categories({ onSetCategory }) {
       <button value={'social'} className="activity social" onClick={selectCategory}>Social</button>
       <button value={'cooking'} className="activity cooking" onClick={selectCategory}>Cooking</button>
       <button value={'education'} className="activity learning" onClick={selectCategory}>Learning</button>
+      
       <br></br>
       <br></br>
    

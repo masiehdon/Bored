@@ -1,9 +1,11 @@
 import { useState, useEffect } from 'react';
 import Button from './components/Button';
-import Heart from "react-animated-heart";
 import { v4 as uuidv4 } from 'uuid';
 import Categories from './components/Categories';
 import './App.css'
+import Favorites from './components/Favorites';
+import { FcLike } from "react-icons/fc";
+import { FcDislike } from "react-icons/fc";
 
 function App() {
   const [activities, setActivities] = useState({
@@ -13,8 +15,8 @@ function App() {
   })
   const [category, setCategory] = useState([])
   const [isClicked, setIsClicked] = useState(false);
-const [fav, setFav] = useState([])
-  const [isClick, setClick] = useState(false);
+  const [fav, setFav] = useState([])
+  const [active, setActive] = useState(false)
   
    const uniqueId = uuidv4(); 
 
@@ -43,12 +45,12 @@ const [fav, setFav] = useState([])
   function handleButtonClick() {
     fetchActivities(category)
     setIsClicked(true)
-    setClick(false)
+   setActive(true)
     console.log(category)
   }
 
    function HandleSaveFav(activities) {
-  if (isClick) {
+  if (active) {
     const newFavList = fav.filter(item => item.activity !== activities);
     setFav(newFavList);
   } else {
@@ -56,9 +58,13 @@ const [fav, setFav] = useState([])
     setFav(currentFav => [...currentFav, newFav]);
   }
   
-  setClick(isClick => !isClick);
+  setActive(curr => !curr);
 }
 
+  
+  function handleSelectFavorites() {
+    return fav
+  }
   
    useEffect(() => {
     console.log('Favorites updated:', fav);
@@ -77,21 +83,23 @@ const [fav, setFav] = useState([])
 
       <Categories onSetCategory={setCategory}/>
       <h1>{activities.activity}</h1>
-      {isClicked &&
-        <Heart isClick={isClick} onClick={() => HandleSaveFav(activities)} />}
+
+
+{/* 
+      <button onClick={() => HandleSaveFav(activities)}>
+  {!active ? "Remove from Favorites" : "Save as Favorite"}
+</button> */}
+
+      
     <p>Participants: {activities.participants}</p>
     <p>Price: {activities.price}</p>
-     
-     
-      
-
-      <h2>{category}</h2>
-      
+    <h2>{category}</h2>
+      <Favorites onHandleSelectFavorites={handleSelectFavorites} fav={fav} />
       <Button
         OnHandleButtonClick={handleButtonClick}
         category={category}
       >
-        {isClicked ? "Get a New Idea" : "Feeling Bored Again?"}
+        {isClicked ? "Next" : "Feeling Bored Again?"}
       </Button>
     </>
   )
