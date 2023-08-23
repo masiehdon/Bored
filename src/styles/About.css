@@ -1,0 +1,10 @@
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+}
+
+img {
+  max-width: 500px;
+}
