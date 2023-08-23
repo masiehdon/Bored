@@ -1,4 +1,5 @@
 import '../styles/About.css'
+import headerImage from '../../public/relax.png'
 
 function About() {
   return (
@@ -20,6 +21,10 @@ function About() {
           <p className="body-copy">
             {`Join us in embracing the world of creative possibilities. Let Bored be your companion in turning ordinary moments into extraordinary experiences. Say goodbye to boredom and hello to a world of endless inspiration with Bored!`}
           </p>
+        </div>
+        
+        <div>
+          <img src={headerImage} alt="My Image" />
         </div>
       </div>
     </>
