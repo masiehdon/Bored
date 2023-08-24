@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { createClient } from '@supabase/supabase-js';
+import '../styles/ContactForm.css'
 
 const supabaseUrl = 'https://yyaujssetcsuuypmkvjv.supabase.co';
 const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl5YXVqc3NldGNzdXV5cG1rdmp2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTI3OTE2NzAsImV4cCI6MjAwODM2NzY3MH0.rb_4BzBn2LT1UhEDhXkrR047dIEOJ-tI2O6CGqI1zLI';
@@ -35,10 +36,10 @@ function ContactForm() {
   };
 
   return (
-    <div>
+    <div className='main-container-form'>
       <h2>Contact Us</h2>
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className='form'>
           <label htmlFor="name">Name:</label>
           <input
             type="text"
@@ -48,7 +49,7 @@ function ContactForm() {
             required
           />
         </div>
-        <div>
+        <div className='form'>
           <label htmlFor="email">Email:</label>
           <input
             type="email"
@@ -58,7 +59,7 @@ function ContactForm() {
             required
           />
         </div>
-        <div>
+        <div className='form'>
           <label htmlFor="message">Message:</label>
           <textarea
             id="message"
@@ -68,6 +69,7 @@ function ContactForm() {
           />
         </div>
         <button
+          className="activity learning"
           type="submit"
           disabled={submitted}>
           {submitted ? 'Submitted' : 'Submit'}
