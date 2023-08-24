@@ -1,12 +1,30 @@
 .main-container-form {
-  padding: 10px;
+  padding: 6.2em 0;
 }
 
 .form {
-  color: aqua;
-  
+  display: flex;
+  flex-direction: column;
 }
 
-input {
-  
+input, textarea {
+  margin-top: .6em;
+  border: .5px solid;
+  border-radius: 12px;
+  padding: .6em;
+}
+
+textarea {
+  min-height: 100px;
+  resize: none;
+}
+
+.submit-msg {
+  display: flex;
+  align-items: center;
+}
+
+.submit-btn {
+  font-size: 1.5em;
+  margin-top: .9em;
 }
