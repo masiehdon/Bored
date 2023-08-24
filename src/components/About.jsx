@@ -5,7 +5,7 @@ function About() {
   return (
     <>
       <div className='main-container'>
-        <div>
+        <div className='primary-content'>
           <h1>About Us</h1>
           <h2>Bored - Find Activities When Bored</h2>
           <p className="ingress">
@@ -17,7 +17,6 @@ function About() {
           <p className="body-copy">
             {` Our team is passionate about curating a diverse collection of activities that cater to all interests and moods. Whether you're a developer looking to enhance your app with engaging content, a designer seeking inspiration, or simply someone searching for a way to unwind, Bored has something for everyone.`}
           </p>
-          
           <p className="body-copy">
             {`Join us in embracing the world of creative possibilities. Let Bored be your companion in turning ordinary moments into extraordinary experiences. Say goodbye to boredom and hello to a world of endless inspiration with Bored!`}
           </p>
