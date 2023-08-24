@@ -1,0 +1,37 @@
+.activity-content {
+	/* border: 2px solid red; */
+	max-width: 1000px;
+	background-color: var(--color-button);
+	border-radius: 12px;
+	margin-top: 22px;
+	padding: 64px;
+}
+
+.h2 {
+	font-family: var(--font-primary);
+	font-size: 32px;
+	color: var(--color-relax);
+	font-weight: 700;
+}
+
+.h3 {
+	font-size: 24px;
+	color: var(--color-relax);
+}
+
+p.activity {
+	font-family: var(--font-primary);
+	font-size: 24px;
+	font-weight: 500;
+	margin: 16px 0 30px;
+}
+
+.p {
+	font-size: 22px; 
+	margin: 8px 0 22px;
+}
+
+.note {
+	font-size: 12px;
+	margin-top: -10px;
+}

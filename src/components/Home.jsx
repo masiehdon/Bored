@@ -10,12 +10,13 @@ function Home() {
 	const [isClicked, setIsClicked] = useState(false);
 
 	const [suggestion, setSuggestion] = useState(null);
-	const categorySuggestion = "music"; // relaxation
-	
+	const [categorySuggestion, setCategorySuggestion] = useState("social")
+	// const categorySuggestion = "music"; // relaxation
+
 	useEffect(() => {
 		console.log("enter useEffect");
 		let subscribed = true;
-		
+
 		const getActivity = (categorySuggestion) => {
 			const apiLink = `https://www.boredapi.com/api/activity?type=${categorySuggestion}`;
 			fetch(apiLink)
@@ -42,7 +43,7 @@ function Home() {
 
 		return () => {
 			subscribed = false;
-			console.log({subscribed})
+			console.log({ subscribed })
 		}
 	}, [categorySuggestion]);
 
@@ -50,21 +51,21 @@ function Home() {
 		console.log("Now data is loaded", { suggestion })
 	}
 
-	async function fetchActivities(selectedCategory) {
-		try {
-			const url = selectedCategory
-				? `https://www.boredapi.com/api/activity?type=${selectedCategory}`
-				: `https://www.boredapi.com/api/activity/`
+	// async function fetchActivities(selectedCategory) {
+	// 	try {
+	// 		const url = selectedCategory
+	// 			? `https://www.boredapi.com/api/activity?type=${selectedCategory}`
+	// 			: `https://www.boredapi.com/api/activity/`
 
-			const response = await fetch(url);
-			const data = await response.json();
-			// const activity = data.activity
-			setActivities(data.activity)
-			console.log(data);
-		} catch (error) {
-			console.error("Error fetching activities:", error);
-		}
-	}
+	// 		const response = await fetch(url);
+	// 		const data = await response.json();
+	// 		// const activity = data.activity
+	// 		setActivities(data.activity)
+	// 		console.log(data);
+	// 	} catch (error) {
+	// 		console.error("Error fetching activities:", error);
+	// 	}
+	// }
 
 	function handleButtonClick() {
 		// fetchActivities(category)
@@ -87,7 +88,7 @@ function Home() {
 			<br></br>
 			<br></br>
 
-			<Activity {...suggestion} />
+			<Activity category={categorySuggestion} {...suggestion} />
 
 
 			<DropDown
