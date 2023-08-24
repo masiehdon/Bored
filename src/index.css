@@ -29,7 +29,6 @@ body {
   font-family: 'Montserrat', sans-serif;
   color: #202D37;
   background: linear-gradient(180deg, rgba(255,255,255, 1) 2%, rgba(248,248,248,1) 98%);
-  
 }
 
 img, svg {
@@ -86,6 +85,15 @@ p {
   line-height: 120%;
   color: #35404A;
   margin: 3.2em 0 1.22em;
+}
+
+.body-copy {
+  font-family: 'Noto Sans Yi', sans-serif;
+  font-weight: 400;
+  font-size: 1.5em;
+  line-height: 120%;
+  color: #35404A;
+  margin: 1.2em 0 1.22em;
 }
 
 a,
