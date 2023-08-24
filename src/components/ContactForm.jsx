@@ -38,43 +38,55 @@ function ContactForm() {
   return (
     <div className='main-container-form'>
       <h2>Contact Us</h2>
+      <p className='body-copy'>{`
+      What's on your mind? Let us know how we can assist you!
+      `}
+      </p>
       <form onSubmit={handleSubmit}>
         <div className='form'>
-          <label htmlFor="name">Name:</label>
+          <label htmlFor="name">Name</label>
           <input
             type="text"
             id="name"
             value={name}
+            placeholder='Jane Doe'
             onChange={(e) => setName(e.target.value)}
             required
           />
         </div>
         <div className='form'>
-          <label htmlFor="email">Email:</label>
+          <label htmlFor="email">Email</label>
           <input
             type="email"
             id="email"
             value={email}
+            placeholder='example@address.com'
             onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
         <div className='form'>
-          <label htmlFor="message">Message:</label>
+          <label htmlFor="message">Message</label>
           <textarea
             id="message"
             value={message}
+            rows="5" cols="40"
+            placeholder='Write your message'
             onChange={(e) => setMessage(e.target.value)}
             required
           />
         </div>
-        <button
-          className="activity learning"
-          type="submit"
-          disabled={submitted}>
-          {submitted ? 'Submitted' : 'Submit'}
-        </button>
-        {submitted && <p>Thank you for your submission!</p>}
+        <div className='submit-msg'>
+          <button
+            className="activity learning"
+            type="submit"
+            disabled={submitted}>
+            {submitted ? 'Submitted' : 'Submit'}
+          </button>
+          <div>
+            {submitted && <p className='submit-btn'>✔ Thank you for your submission!</p>}
+          </div>
+        </div>
       </form>
     </div>
   );
