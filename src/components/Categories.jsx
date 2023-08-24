@@ -1,18 +1,19 @@
 /* eslint-disable react/prop-types */
 import '../styles/DropDown.css';
 
-function Categories({ onSetCategory }) {
+function Categories({ onSetCategory, onHandleButtonClick }) {
   
   function selectCategory(e) {
       const selectedCategory = e.target.value
     onSetCategory(selectedCategory)
+    onHandleButtonClick();
     console.log('selectedCategory: ', e.target.value)
   }
 
   return (
-    <div className="dropdown">
+    <div>
       
-      <button value={''} className="activity random" onClick={selectCategory}>Random</button>
+      <button value={''} className="activity random" onClick={selectCategory} >Random</button>
       <button value={'relaxation'} className="activity relax" onClick={selectCategory}>Relax</button>
       <button value={'social'} className="activity social" onClick={selectCategory}>Social</button>
       <button value={'cooking'} className="activity cooking" onClick={selectCategory}>Cooking</button>

@@ -1,12 +1,22 @@
+import { useId } from 'react';
 import { useState } from 'react';
 import Button from './Button';
+import Categories from './Categories';
+import Favorites from './Favorites';
 import '../App.css'
-import DropDown from './DropDown';
 
 function Home() {
-  const [activities, setActivities] = useState([]);
-  const [category, setCategory] = useState([]);
+  const [activities, setActivities] = useState({
+    activity: '',
+    participants: 0,
+    price: 0
+  });
+  const [category, setCategory] = useState('');
   const [isClicked, setIsClicked] = useState(false);
+  const [fav, setFav] = useState([]);
+  const [saved, setSaved] = useState(false);
+
+  const uniqueId = useId();
 
   async function fetchActivities(selectedCategory) {
     try {
@@ -16,50 +26,65 @@ function Home() {
 
       const response = await fetch(url);
       const data = await response.json();
-      // const activity = data.activity
-      setActivities(data.activity)
-      console.log(data);
+
+      setActivities({
+        activity: data.activity,
+        participants: data.participants,
+        price: data.price,
+        id: uniqueId
+      });
+
     } catch (error) {
       console.error("Error fetching activities:", error);
     }
   }
-  // useEffect(() => {
-  //   fetchActivities();
-  // }, [])
 
   function handleButtonClick() {
-    fetchActivities(category)
-    setIsClicked(true)
-    console.log(category)
+    fetchActivities(category);
+    setIsClicked(true);
+    setSaved(false);
   }
+
+  function handleSaveFav() {
+    if (saved) {
+      const newFavList = fav.filter(item => item.id !== activities.id);
+      setFav(newFavList);
+    } else if (!fav.some(item => item.id === activities.id)) {
+      const newFav = { id: activities.id, activity: activities.activity };
+      setFav(currentFav => [...currentFav, newFav]);
+    }
+    setSaved(curr => !curr);
+  }
+
+  const shouldDisplayDetails = activities.activity !== '';
 
   return (
     <>
       <div className="header">
         <h1>Bored?</h1>
         <h2>Casual & Daily Activities</h2>
-        <p className="ingress">Get ideas for activites. Click on a button.</p>
+        <p className="ingress">Get ideas for activities. Click on a button.</p>
       </div>
-      <button className="activity random">Random</button>
-      <button className="activity relax">Relax</button>
-      <button className="activity social">Social</button>
-      <button className="activity cooking">Cooking</button>
-      <button className="activity learning">Learning</button>
-      <br></br>
-      <br></br>
 
-      <DropDown
-        onSetCategory={setCategory}
-      />
-      <h1>{activities}</h1>
-      <h2>{category}</h2>
-      {/* Passing down fetchActivities function as props to Button component */}
+      <Categories onSetCategory={setCategory} onHandleButtonClick={handleButtonClick} />
+
+      {shouldDisplayDetails && (
+        <>
+          <h1>{activities.activity}</h1>
+          <button onClick={handleSaveFav}>{saved ? 'Saved!' : 'Save'}</button>
+          <h3>Participants: {activities.participants}</h3>
+          <h3>Price: {activities.price}</h3>
+        </>
+      )}
+
       <Button
         OnHandleButtonClick={handleButtonClick}
         category={category}
       >
-        {isClicked ? "Get a New Idea" : "Feeling Bored Again?"}
+        {isClicked ? "Next" : "Feeling Bored Again?"}
       </Button>
+
+      <Favorites fav={fav} />
     </>
   );
 }

@@ -6,9 +6,9 @@ function Favorites({ onHandleSelectFavorites, fav }) {
             {fav.map(item => (
                 <div key={item.id}>
                     <h2>{item.activity}</h2>
-                    <p>Participants: {item.participants}</p>
-                    <p>Price: {item.price}</p>
+                   
                 </div>
+           
             ))}
         </div>
     );
