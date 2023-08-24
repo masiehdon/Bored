@@ -9,6 +9,7 @@ function ContactForm() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
+  const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,6 +27,7 @@ function ContactForm() {
         setName('');
         setEmail('');
         setMessage('');
+        setSubmitted(true);
       }
     } catch (error) {
       console.error('Error connecting to Supabase:', error);
@@ -65,7 +67,12 @@ function ContactForm() {
             required
           />
         </div>
-        <button type="submit">Submit</button>
+        <button
+          type="submit"
+          disabled={submitted}>
+          {submitted ? 'Submitted' : 'Submit'}
+        </button>
+        {submitted && <p>Thank you for your submission!</p>}
       </form>
     </div>
   );
