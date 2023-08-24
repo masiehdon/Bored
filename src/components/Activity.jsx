@@ -7,7 +7,7 @@ function Activity({ activity, category, participants, price }) {
 	const percentage = parseInt(price * 100) + " %";
 	
 	const categoryToGenre = {
-		music: "Music activity",
+		social: "Be Social & have fun",
 		relaxation: "Relax and chill",
 		cooking: "Do some cooking",
 		education: "Learn something exciting",
@@ -20,7 +20,7 @@ function Activity({ activity, category, participants, price }) {
 		<>
 			<div className="activity-content">
 				<h2 className="h2">{genre}</h2>
-				<p className="activity">{activity}</p>
+				<p className={`get-activity ${category}Color`}>{activity}</p>
 				<h3 className="h3">Participants</h3>
 				{participants === 1 ?
 					<p className="p">{participants} person</p> :
