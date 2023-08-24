@@ -62,3 +62,17 @@ button.activity {
 	/* border: 2px solid orange; */
 	display: block;
 }
+
+h3 {
+	font-family: var(--font-primary);
+	font-size: 22px;
+}
+
+.activity-content {
+	/* border: 2px solid red; */
+	max-width: 1000px;
+	background-color: var(--color-button);
+	border-radius: 12px;
+	margin-top: 22px;
+	padding: 64px;
+}
