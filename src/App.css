@@ -52,6 +52,11 @@ button.activity {
 	margin: 12px 18px 0 0;
 }
 
+button.activity:hover {
+  opacity: .7;
+  filter: alpha(opacity=90);
+}
+
 .header::after {
 	content: url("../public/bored-header.png");
 	position: relative;
