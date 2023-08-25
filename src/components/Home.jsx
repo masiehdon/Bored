@@ -1,67 +1,91 @@
+import { useId } from 'react';
 import { useState } from 'react';
-import Button from './Button';
+// import Button from './Button';
+// import Categories from './Categories';
+// import Favorites from './Favorites';
+import Activity from './Activity';
 import '../App.css'
-import DropDown from './DropDown';
+// import DropDown from './DropDown';
 
 function Home() {
-  const [activities, setActivities] = useState([]);
-  const [category, setCategory] = useState([]);
-  const [isClicked, setIsClicked] = useState(false);
+	const [activities, setActivities] = useState({
+		activity: '',
+		participants: 0,
+		price: 0
+	});
+	const [category, setCategory] = useState('');
+	const [isClicked, setIsClicked] = useState(false);
+	const [fav, setFav] = useState([]);
+	const [saved, setSaved] = useState(false);
 
-  async function fetchActivities(selectedCategory) {
-    try {
-      const url = selectedCategory
-        ? `https://www.boredapi.com/api/activity?type=${selectedCategory}`
-        : `https://www.boredapi.com/api/activity/`
+	const uniqueId = useId();
 
-      const response = await fetch(url);
-      const data = await response.json();
-      // const activity = data.activity
-      setActivities(data.activity)
-      console.log(data);
-    } catch (error) {
-      console.error("Error fetching activities:", error);
-    }
-  }
-  // useEffect(() => {
-  //   fetchActivities();
-  // }, [])
+	const [suggestion, setSuggestion] = useState(null);
+	const [categorySuggestion, setCategorySuggestion] = useState("")
+	const [buttonClicked, setButtonClicked] = useState(false);
+	const activityTypes = [
+		{ type: '', label: 'Random' },
+		{ type: 'relaxation', label: 'Relax' },
+		{ type: 'social', label: 'Social' },
+		{ type: 'cooking', label: 'Cooking' },
+		{ type: 'education', label: 'Learning' },
+	];
 
-  function handleButtonClick() {
-    fetchActivities(category)
-    setIsClicked(true)
-    console.log(category)
-  }
+	async function fetchActivities(selectedCategory) {
+		try {
+			const url = selectedCategory
+				? `https://www.boredapi.com/api/activity?type=${selectedCategory}`
+				: `https://www.boredapi.com/api/activity/`
 
-  return (
-    <>
-      <div className="header">
-        <h1>Bored?</h1>
-        <h2>Casual & Daily Activities</h2>
-        <p className="ingress">Get ideas for activites. Click on a button.</p>
-      </div>
-      <button className="activity random">Random</button>
-      <button className="activity relax">Relax</button>
-      <button className="activity social">Social</button>
-      <button className="activity cooking">Cooking</button>
-      <button className="activity learning">Learning</button>
-      <br></br>
-      <br></br>
+			const response = await fetch(url);
+			const data = await response.json();
 
-      <DropDown
-        onSetCategory={setCategory}
-      />
-      <h1>{activities}</h1>
-      <h2>{category}</h2>
-      {/* Passing down fetchActivities function as props to Button component */}
-      <Button
-        OnHandleButtonClick={handleButtonClick}
-        category={category}
-      >
-        {isClicked ? "Get a New Idea" : "Feeling Bored Again?"}
-      </Button>
-    </>
-  );
+			setSuggestion(data);   // addition
+
+			setActivities({
+				activity: data.activity,
+				participants: data.participants,
+				price: data.price,
+				id: uniqueId
+			});
+
+		} catch (error) {
+			console.error("Error fetching activities:", error);
+		}
+	}
+
+	function handleButtonClick(category) {
+		setCategorySuggestion(category);
+		setButtonClicked(true);
+		fetchActivities(category);
+		setIsClicked(true);
+		setSaved(false);
+	}
+
+	return (
+		<>
+			<div className={`header ${buttonClicked ? 'move-up' : ''}`}>
+				<h1>Bored?</h1>
+				<h2>Casual & Daily Activities</h2>
+				<p className="ingress">Get ideas for activites. Click on a button.</p>
+			</div>
+
+			<div className="activity-menu">
+				{activityTypes.map(({ type, label }) => (
+					<button
+						key={type}
+						className={`activity ${type}`}
+						onClick={() => handleButtonClick(type)}
+					>
+						{label}
+					</button>))}
+			</div>
+
+			{buttonClicked &&
+				<Activity category={categorySuggestion} {...suggestion} />}
+
+		</>
+	);
 }
 
 export default Home;

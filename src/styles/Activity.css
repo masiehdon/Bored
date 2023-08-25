@@ -1,0 +1,53 @@
+.activity-content {
+	max-width: 888px;
+	background-color: var(--color-button);
+	border-radius: 12px;
+	margin-top: 28px;
+	padding: 24px 36px;
+	padding: 32px 28px;
+}
+
+.h2 {
+	font-family: var(--font-primary);
+	font-size: 28px;
+	font-size: 18px;
+	font-weight: 600;
+	color: var(--color-primary);
+}
+
+.h3 {
+	font-size: 16px;
+	font-weight: 600;
+	color: var(--color-primary);
+}
+
+.get-activity {
+	font-family: var(--font-primary);
+	font-size: 24px;
+	font-weight: 700;
+	margin: 16px 0 30px;
+	line-height: 148%;
+}
+
+.socialColor {
+	color: var(--color-social);
+}
+.relaxationColor {
+	color: var(--color-relax);
+}
+.cookingColor {
+	color: var(--color-cooking);
+}
+.educationColor {
+	color: var(--color-learning);
+}
+
+.p {
+	font-size: 16px; 
+	margin: 8px 0 22px;
+}
+
+.note {
+	font-size: 12px;
+	margin-top: -10px;
+}
