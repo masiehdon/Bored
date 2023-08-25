@@ -52,6 +52,11 @@
 	background-color: var(--color-learning);
 }
 
+button.activity:hover {
+  opacity: .7;
+  filter: alpha(opacity=90);
+}
+
 .header::after {
 	content: url("../public/bored-header.png");
 	position: relative;

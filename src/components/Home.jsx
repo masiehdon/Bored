@@ -1,11 +1,10 @@
 import { useId } from 'react';
 import { useState } from 'react';
-import Button from './Button';
-import Categories from './Categories';
-import Favorites from './Favorites';
-import '../App.css'
-
+// import Button from './Button';
+// import Categories from './Categories';
+// import Favorites from './Favorites';
 import Activity from './Activity';
+import '../App.css'
 
 function Home() {
 	const [activities, setActivities] = useState({
@@ -53,7 +52,7 @@ function Home() {
 			console.error("Error fetching activities:", error);
 		}
 	}
-	
+
 	function handleButtonClick(category) {
 		setCategorySuggestion(category);
 		setButtonClicked(true);
@@ -64,7 +63,6 @@ function Home() {
 
 	return (
 		<>
-
 			<div className={`header ${buttonClicked ? 'move-up' : ''}`}>
 				<h1>Bored?</h1>
 				<h2>Casual & Daily Activities</h2>
@@ -79,7 +77,7 @@ function Home() {
 						onClick={() => handleButtonClick(type)}
 					>
 						{label}
-					</button>))};
+					</button>))}
 			</div>
 
 			{buttonClicked &&
