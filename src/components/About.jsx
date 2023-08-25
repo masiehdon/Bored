@@ -1,5 +1,6 @@
 import '../styles/About.css'
 import headerImage from '../../public/relax.png'
+import ContactForm from './ContactForm';
 
 function About() {
   return (
@@ -26,6 +27,7 @@ function About() {
           <img src={headerImage} alt="My Image" />
         </div>
       </div>
+      <ContactForm />
     </>
   );
 }
