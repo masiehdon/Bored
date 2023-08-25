@@ -1,0 +1,108 @@
+:root {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+  height: 100vh;
+  box-sizing: border-box;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 20px 10vw;
+  padding: 0;
+  font-size: 10px;
+  font-family: 'Montserrat', sans-serif;
+  color: #202D37;
+  background: linear-gradient(180deg, rgba(255,255,255, 1) 2%, rgba(248,248,248,1) 98%);
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select, a {
+  font: inherit;
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 9.6em;
+  font-size: 8.1em;
+  color: #085AFC;
+  margin: 0 0 0.22em;
+}
+
+h2 {
+  font-family: 'Lexend', sans-serif;
+  font-weight: 600;
+  font-size: 6.4em;
+  font-size: 4.8em;
+  line-height: 108%;
+  color: #202D37;
+  margin: 0 0 0.22em;
+}
+
+p {
+  font-family: 'Noto Sans Yi', sans-serif;
+  font-weight: 400;
+  font-size: 3.6em;
+  font-size: 2.8em;
+  line-height: 120%;
+  color: #35404A;
+  margin: 0 0 0.22em;
+}
+
+.ingress {
+  font-family: 'Noto Sans Yi', sans-serif;
+  font-weight: 400;
+  font-size: 2.4em;
+  line-height: 120%;
+  color: #35404A;
+  margin: 3.2em 0 1.22em;
+}
+
+.body-copy,
+.form {
+  font-family: 'Noto Sans Yi', sans-serif;
+  font-weight: 400;
+  font-size: 1.5em;
+  line-height: 120%;
+  color: #35404A;
+  margin: 1.2em 0 1.22em;
+}
+
+a,
+a:link,
+a:visited {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  /* font-size: 1.4em; */
+  line-height: 110%;
+  color: #202D37;
+}

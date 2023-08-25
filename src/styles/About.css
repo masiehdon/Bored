@@ -1,0 +1,20 @@
+.main-container {
+  display: flex;
+  gap: 10px;
+  max-width: 888px;
+}
+
+.primary-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1 0 70%;
+}
+
+img {
+  max-width: 500px;
+}
+
+.ingress {
+  margin: 1.22em 0 1.22em;
+  line-height: 140%;
+}
