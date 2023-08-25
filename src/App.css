@@ -59,8 +59,8 @@
 	left: 16em;
 	z-index: -20;
 	height: 0px;
-	/* border: 2px solid orange; */
 	display: block;
+	transition: top 0.5s;
 }
 
 .move-up::after {
