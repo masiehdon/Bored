@@ -5,16 +5,15 @@ function Activity({ activity, category, participants, price }) {
 	console.log("category", category);
 
 	const percentage = parseInt(price * 100) + " %";
-	
 	const categoryToGenre = {
 		social: "Be Social & have fun",
 		relaxation: "Relax and chill",
 		cooking: "Do some cooking",
 		education: "Learn something exciting",
 	};
-	
+
 	const genre = categoryToGenre[category] || "Random ideas for you";
-	
+
 
 	return (
 		<>
