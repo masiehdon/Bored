@@ -2,7 +2,7 @@ import './footer.css';
 
 const Footer = () => {
   return (
-    <div className="footer">
+    <footer className="footer">
       <p>This is a non-commercial app made for educational purposes. Illustrations by <a href="https://dribbble.com/illiyinstudio">@illiyinstudio</a>.</p>
       <div className="link-container">
         <div className="link-item">
@@ -29,7 +29,7 @@ const Footer = () => {
           </p>
         </div>
       </div>
-    </div>
+    </footer>
   );
 }
 
